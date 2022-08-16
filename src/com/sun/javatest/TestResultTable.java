@@ -347,7 +347,7 @@ public class TestResultTable {
      */
     public static String getRootRelativePath(TreeNode node) {
         if (node.isRoot()) {
-            return ".";
+            return "";
         }
 
         StringBuilder name = new StringBuilder(node.getName());
