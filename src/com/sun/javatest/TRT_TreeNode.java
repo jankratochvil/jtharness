@@ -51,7 +51,7 @@ public class TRT_TreeNode implements TestResultTable.TreeNode {
     // ------- See interface in TestResultTable for docs. on these methods
 
     //static protected boolean debug = Boolean.getBoolean("debug." + TRT_TreeNode.class.getName());
-    static protected int debug = Debug.getInt(TRT_TreeNode.class);
+    static protected int debug = 10; // Debug.getInt(TRT_TreeNode.class);
     // no per-instance array of observers, use a static Hashtable of arrays
     private static Map<TRT_TreeNode, TestResultTable.TreeNodeObserver[]> observerTable = new Hashtable<>(16);
     private static I18NResourceBundle i18n = I18NResourceBundle.getBundleForClass(TRT_TreeNode.class);
