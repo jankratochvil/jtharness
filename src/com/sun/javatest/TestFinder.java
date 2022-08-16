@@ -429,6 +429,7 @@ public abstract class TestFinder {
 
         testsInFile.clear();
 
+System.err.println("TestFinder.java read file="+file.getAbsolutePath()+" isAbsolute="+file.isAbsolute());
         scan(file.isAbsolute() ? file : new File(rootDir, file.getPath()));
         //scan(file);
     }
