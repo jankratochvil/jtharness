@@ -51,7 +51,7 @@ public class TRT_TreeNode implements TestResultTable.TreeNode {
     // ------- See interface in TestResultTable for docs. on these methods
 
     //static protected boolean debug = Boolean.getBoolean("debug." + TRT_TreeNode.class.getName());
-    static protected int debug = 10; // Debug.getInt(TRT_TreeNode.class);
+    static protected int debug = Debug.getInt(TRT_TreeNode.class);
     // no per-instance array of observers, use a static Hashtable of arrays
     private static Map<TRT_TreeNode, TestResultTable.TreeNodeObserver[]> observerTable = new Hashtable<>(16);
     private static I18NResourceBundle i18n = I18NResourceBundle.getBundleForClass(TRT_TreeNode.class);
@@ -803,6 +803,7 @@ public class TRT_TreeNode implements TestResultTable.TreeNode {
                 if (Objects.equals(filesToScan[i], this.name)) {
                     processFile(thisDir);
                 } else {
+System.err.println("scanIfNeeded getRootRelativePath="+TestResultTable.getRootRelativePath(this)+" separator="+File.separator+" filesToScan[i]="+filesToScan[i]);
                     processFile(new File(TestResultTable.getRootRelativePath(this) +
                             File.separator + filesToScan[i]));
                 }
@@ -1241,6 +1242,7 @@ public class TRT_TreeNode implements TestResultTable.TreeNode {
      * @return The test results which were recognized by this scan.
      */
     private ArrayList<TestResult> processFile(File file) {
+System.err.println("processFile file="+file.getAbsolutePath()+" isAbsolute="+file.isAbsolute());
         if (debug > 0) {
             Debug.println("--- Entering processFile() ---");
             Debug.println("This node's name: " + TestResultTable.getRootRelativePath(this));
