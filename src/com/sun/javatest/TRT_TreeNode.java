@@ -804,8 +804,10 @@ public class TRT_TreeNode implements TestResultTable.TreeNode {
                     processFile(thisDir);
                 } else {
 System.err.println("scanIfNeeded getRootRelativePath="+TestResultTable.getRootRelativePath(this)+" separator="+File.separator+" filesToScan[i]="+filesToScan[i]);
-                    processFile(new File(TestResultTable.getRootRelativePath(this) +
-                            File.separator + filesToScan[i]));
+                    String path = TestResultTable.getRootRelativePath(this);
+                    if (path != "")
+                        path += File.separator;
+                    processFile(new File(path + filesToScan[i]));
                 }
             }   // for
         } else {
