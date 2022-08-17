@@ -803,6 +803,7 @@ public class TRT_TreeNode implements TestResultTable.TreeNode {
                 if (Objects.equals(filesToScan[i], this.name)) {
                     processFile(thisDir);
                 } else {
+System.err.println("scanIfNeeded getRootRelativePath="+TestResultTable.getRootRelativePath(this)+" separator="+File.separator+" filesToScan[i]="+filesToScan[i]);
                     String path = TestResultTable.getRootRelativePath(this);
                     if (path != "")
                         path += File.separator;
@@ -1243,6 +1244,7 @@ public class TRT_TreeNode implements TestResultTable.TreeNode {
      * @return The test results which were recognized by this scan.
      */
     private ArrayList<TestResult> processFile(File file) {
+System.err.println("processFile file="+file.getAbsolutePath()+" isAbsolute="+file.isAbsolute());
         if (debug > 0) {
             Debug.println("--- Entering processFile() ---");
             Debug.println("This node's name: " + TestResultTable.getRootRelativePath(this));

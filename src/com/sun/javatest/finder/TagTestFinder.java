@@ -111,6 +111,7 @@ public class TagTestFinder extends TestFinder {
         if (file.isDirectory()) {
             scanDirectory(file);
         } else {
+System.err.println("scanFile caller file="+file.getAbsolutePath());
             scanFile(file);
         }
     }
@@ -278,6 +279,7 @@ public class TagTestFinder extends TestFinder {
      * @param file The file to scan
      */
     protected void scanFile(File file) {
+System.err.println("scanFile callee file="+file.getAbsolutePath());
         int testDescNumber = 0;
         String name = file.getName();
         int dot = name.indexOf('.');
